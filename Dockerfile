@@ -1,5 +1,6 @@
-FROM ubuntu:latest
+FROM eclipse-temurin:17-jdk-alpine
 LABEL authors="jerson garcia"
-COPY target/spring-boot-app-0.0.1-SNAPSHOT.jar springbootapp.jar
+WORKDIR /app
+COPY target/app-0.0.1-SNAPSHOT.jar /app/app-0.0.1-SNAPSHOT.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/springbootapp.jar"]
+ENTRYPOINT ["java", "-jar", "/app/app-0.0.1-SNAPSHOT.jar"]
